@@ -41,7 +41,7 @@ export default function Navbar({ sidebarOpen, setSidebarOpen }: Navbar) {
       </div>
 
       {/* Navigation menu */}
-      <nav className="p-5">
+      <nav className="p-6 space-y-1 items-center">
         {navItems.map((item, index) => (
           <Link href={item.path} key={index}>
             <Button
@@ -49,10 +49,10 @@ export default function Navbar({ sidebarOpen, setSidebarOpen }: Navbar) {
               variant={pathname === item.path ? "secondary" : "ghost"}
               className={`w-full justify-start mb-2 flex items-center text-sm font-medium text-blue-600
                 ${pathname === item.path ? 'bg-blue-100 text-blue-700 hover:bg-blue-200' : 'hover:bg-blue-50 hover:text-blue-700'}
-                ${sidebarOpen ? 'px-4' : 'px-4'}
+                ${sidebarOpen ? 'px-4' : 'px-2'}
               `}
             >
-              <item.icon className={`h-5 w-5 ${pathname === item.path ? 'text-blue-700' : ''}`} />
+              <item.icon className={`h-6 w-6  ${pathname === item.path ? 'text-blue-700' : ''}`} />
               <span className={`ml-2 transition-opacity duration-300
                 ${sidebarOpen ? 'opacity-100' : 'opacity-0 w-0'}
               `}>
