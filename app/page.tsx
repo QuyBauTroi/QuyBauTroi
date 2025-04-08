@@ -1,21 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import Navbar from "../components/layout/Navbar";
-import Header from "../components/layout/Header";
+import MainLayout from "@/components/layout/MainLayout";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Dashboard() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const { currentUser } = useAuth();
 
   return (
-    <div className="min-h-screen bg-background flex">
-      <Navbar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      
-      <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-85' : 'ml-20'}`}>
-        <Header sidebarOpen={sidebarOpen} />
-        
-        
-      </div>
-    </div>
+    <MainLayout>
+      <main className="p-8 mt-16">
+        <h1 className="text-2xl font-bold mb-4">Welcome to Hotel Admin Dashboard</h1>
+        <p className="text-muted-foreground">
+          Hello, <span className="text-2xl font-bold text-blue-400">{currentUser?.name}</span> 
+        </p>
+      </main>
+    </MainLayout>
   );
 }

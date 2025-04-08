@@ -15,6 +15,8 @@ export default function Header({ sidebarOpen }: HeaderProps) {
   const getPageTitle = () => {
     switch (pathname) {
       case '/':
+      return 'Home';
+      case '/dashboard':
         return 'Dashboard';
       case '/bookings':
         return 'Bookings';
@@ -44,7 +46,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
 
           {/* User profile */}
           <div className="flex items-center gap-2 border-l-2 border-blue-200 pl-4">
-            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center bg-blue-100">
+            <div className="w-8 h-8 rounded-full  flex items-center justify-center bg-blue-100">
               <UserCircle className="h-6 w-6 text-blue-600" />
             </div>
             <span className="font-medium text-blue-700">Admin</span>
