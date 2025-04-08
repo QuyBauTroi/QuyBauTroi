@@ -1,10 +1,10 @@
 "use client";
 
 import MainLayout from "@/components/layout/MainLayout";
-import { Calendar, DoorOpen, DoorClosed, BedDouble } from "lucide-react";
 import {DashboardStats} from "@/components/Dashboard/Dashboard-stats";
 import { RoomStats } from "@/components/Dashboard/Room-stats";
-import { useState } from "react";
+import { RoomTypeDistribution } from "@/components/Dashboard/Room-type-distribution"; 
+import { RoomOccupancy } from "@/components/Dashboard/Room-occupancy";
 
 export default function Dashboard() {
 
@@ -18,6 +18,10 @@ export default function Dashboard() {
         <div className="grid gap-4 mt-5">
           <RoomStats/>
         </div>
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+          <RoomOccupancy className="lg:col-span-5"/>
+          <RoomTypeDistribution className="lg:col-span-2"/>
+          </div>
       </main>
     </MainLayout>
     

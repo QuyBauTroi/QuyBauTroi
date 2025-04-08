@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Home, BedDouble, UserCircle, Settings, Calendar, LogOut, ChevronLeft, ChevronRight, TableProperties, Hotel ,LayoutDashboard } from "lucide-react";
+import {  BedDouble, UserCircle, Settings, Calendar, LogOut, ChevronLeft, ChevronRight, TableProperties, Hotel ,LayoutDashboard } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 

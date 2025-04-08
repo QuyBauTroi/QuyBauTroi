@@ -19,12 +19,14 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("currentUser");
     if (storedUser) {
       setCurrentUser(JSON.parse(storedUser));
     }
+    setIsLoading(false);
   }, []);
 
   const login = (user: User) => {
@@ -39,7 +41,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider value={{ currentUser, login, logout }}>
-      {children}
+      {!isLoading && children} {/* chỉ render khi đã load xong */}
     </AuthContext.Provider>
   );
 }
