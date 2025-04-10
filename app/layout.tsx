@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import { Inter } from 'next/font/google';
 import { AuthProvider } from "./../contexts/AuthContext";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ['latin'] });
-
 
 export const metadata: Metadata = {
   title: "Hotel Solution",
@@ -20,7 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-    <body className={inter.className}>
+    <body>
+    <Toaster position="top-right" richColors />
       <AuthProvider>
           {children}
       </AuthProvider>

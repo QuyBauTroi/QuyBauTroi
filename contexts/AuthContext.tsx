@@ -15,6 +15,12 @@ interface AuthContextType {
   logout: () => void;
 }
 
+const mockUsers = [
+    { email: "admin@example.com", password: "1234567",name: "QuyBauTroi", role: 1 }, // Admin
+    { email: "quy@gmail.com", password: "123", name: "LeTan", role: 2 }, // Lễ tân
+    { email: "kythuat@gmail.com", password: "123", name: "KySu", role: 3 }, // Kỹ sư
+];
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {

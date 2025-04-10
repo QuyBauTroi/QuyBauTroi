@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {  BedDouble, UserCircle, Settings, Calendar, LogOut, ChevronLeft, ChevronRight, TableProperties, Hotel ,LayoutDashboard } from "lucide-react";
+import {  BedDouble, UserCircle, Settings, Calendar, LogOut, ChevronLeft, ChevronRight, TableProperties, Hotel ,LayoutDashboard, Users } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -10,6 +10,7 @@ const navItems = [
   { icon: Calendar, label: "Bookings", path: "/bookings" },
   { icon: TableProperties, label: "Properties", path: "/properties" },
   { icon: BedDouble, label: "Rooms", path: "/rooms" },
+  { icon: Users, label: "Staffs", path: "/staffs" },
   { icon: UserCircle, label: "Guests", path: "/guests" },
   { icon: Settings, label: "Settings", path: "/settings" },
 ];

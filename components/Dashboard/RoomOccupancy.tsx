@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -37,7 +36,6 @@ const mockData = {
 
 export function RoomOccupancy({ className }: RoomOccupancyProps) {
   const [activeTab, setActiveTab] = useState<"daily" | "weekly" | "monthly">("weekly")
-
   const data = mockData[activeTab]
   const maxValue = 100 // Maximum percentage value
 
@@ -49,12 +47,7 @@ export function RoomOccupancy({ className }: RoomOccupancyProps) {
           <CardDescription>Tỷ lệ lấp đầy phòng theo thời gian</CardDescription>
         </div>
         <div className="ml-auto flex items-center gap-2">
-          <Tabs
-            defaultValue="weekly"
-            value={activeTab}
-            onValueChange={(value) => setActiveTab(value as "daily" | "weekly" | "monthly")}
-            className="mr-auto"
-          >
+          <Tabs defaultValue="weekly" value={activeTab} onValueChange={(value) => setActiveTab(value as "daily" | "weekly" | "monthly")} className="mr-auto">
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="daily">Ngày</TabsTrigger>
               <TabsTrigger value="weekly">Tuần</TabsTrigger>
@@ -80,7 +73,6 @@ export function RoomOccupancy({ className }: RoomOccupancyProps) {
               <span className="text-sm">Suite</span>
             </div>
           </div>
-
           {/* Chart */}
           <div className="relative h-[220px] w-full">
             {/* Y-axis labels */}
@@ -91,14 +83,12 @@ export function RoomOccupancy({ className }: RoomOccupancyProps) {
               <span>25%</span>
               <span>0%</span>
             </div>
-
             {/* Chart grid lines */}
             <div className="absolute left-8 right-0 top-0 h-full flex flex-col justify-between">
               {[0, 1, 2, 3, 4].map((i) => (
                 <div key={i} className="border-t border-dashed border-muted-foreground/20 w-full h-0"></div>
               ))}
             </div>
-
             {/* Bar chart */}
             <div className="absolute left-10 right-0 top-0 h-full flex items-end">
               <div className="flex-1 flex justify-around items-end h-full">
@@ -111,14 +101,12 @@ export function RoomOccupancy({ className }: RoomOccupancyProps) {
                           Standard: {item.standard}%
                         </div>
                       </div>
-
                       {/* Deluxe room bar */}
                       <div className="w-4 bg-blue-500 rounded-sm transition-all duration-300 hover:opacity-80 cursor-pointer relative group" style={{ height: `${(item.deluxe / maxValue) * 100}%` }}>
                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 bg-background border rounded px-2 py-1 text-xs opacity-0 group-hover:opacity-100 whitespace-nowrap">
                           Deluxe: {item.deluxe}%
                         </div>
                       </div>
-
                       {/* Suite room bar */}
                       <div className="w-4 bg-amber-500 rounded-sm transition-all duration-300 hover:opacity-80 cursor-pointer relative group" style={{ height: `${(item.suite / maxValue) * 100}%` }}>
                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 bg-background border rounded px-2 py-1 text-xs opacity-0 group-hover:opacity-100 whitespace-nowrap">

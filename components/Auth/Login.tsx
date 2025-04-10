@@ -1,17 +1,15 @@
 "use client";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LogIn } from "lucide-react";
-
-
+import { toast } from "sonner";
 
 interface AuthProps {
   onLogin: (user: { email: string; role: number, name:string }) => void; // Prop để thông báo đăng nhập thành công
 }
 // Giả lập kiểm tra đăng nhập (thay bằng API thực tế)
 const mockUsers = [
-    { email: "admin@example.com", password: "admin123",name: "QuyBauTroi", role: 1 }, // Admin
+    { email: "admin@example.com", password: "1234567",name: "QuyBauTroi", role: 1 }, // Admin
     { email: "quy@gmail.com", password: "123", name: "LeTan", role: 2 }, // Lễ tân
     { email: "kythuat@gmail.com", password: "123", name: "KySu", role: 3 }, // Kỹ sư
 ];
@@ -24,14 +22,12 @@ export default function Auth({ onLogin }: AuthProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-
-
     const user = mockUsers.find(
       (u) => u.email === email && u.password === password
     );
-
     if (user) {
       onLogin({email : user.email, role: user.role , name: user.name}); // Gọi callback khi đăng nhập thành công
+      toast.success("Đăng nhập thành công")
     } else {
       setError("Email hoặc mật khẩu không đúng");
     }
@@ -44,25 +40,11 @@ export default function Auth({ onLogin }: AuthProps) {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2">Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border rounded-md"
-              placeholder="Nhập email"
-              required
-            />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 border rounded-md" placeholder="Nhập email" required />
           </div>
           <div className="mb-6">
             <label className="block text-sm font-medium mb-2">Mật khẩu</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border rounded-md"
-              placeholder="Nhập mật khẩu"
-              required
-            />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-2 border rounded-md" placeholder="Nhập mật khẩu" required/>
           </div>
           {error && <div className="mb-4 text-red-500 text-sm">{error}</div>}
           <Button type="submit" className="w-full flex items-center justify-center gap-2">

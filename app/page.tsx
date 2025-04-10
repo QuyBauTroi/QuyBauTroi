@@ -1,6 +1,5 @@
 "use client";
-
-import MainLayout from "@/components/layout/MainLayout";
+import MainLayout from "@/components/Layout/MainLayout";
 import { useAuth } from "@/contexts/AuthContext";
 
 export default function Dashboard() {

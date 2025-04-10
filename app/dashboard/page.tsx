@@ -1,13 +1,11 @@
 "use client";
-
-import MainLayout from "@/components/layout/MainLayout";
-import {DashboardStats} from "@/components/Dashboard/Dashboard-stats";
-import { RoomStats } from "@/components/Dashboard/Room-stats";
-import { RoomTypeDistribution } from "@/components/Dashboard/Room-type-distribution"; 
-import { RoomOccupancy } from "@/components/Dashboard/Room-occupancy";
+import MainLayout from "@/components/Layout/MainLayout";
+import {DashboardStats} from "@/components/Dashboard/DashboardStats";
+import { RoomStats } from "@/components/Dashboard/RoomStats";
+import { RoomTypeDistribution } from "@/components/Dashboard/RoomTypeDistribution"; 
+import { RoomOccupancy } from "@/components/Dashboard/RoomOccupancy";
 
 export default function Dashboard() {
-
   return (
     <MainLayout>
       <main className="p-8 mt-16">
@@ -24,6 +22,5 @@ export default function Dashboard() {
           </div>
       </main>
     </MainLayout>
-    
   );
 }
