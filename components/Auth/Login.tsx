@@ -7,7 +7,7 @@ import { toast } from "sonner";
 interface AuthProps {
   onLogin: (user: { email: string; role: number, name:string }) => void; // Prop để thông báo đăng nhập thành công
 }
-// Giả lập kiểm tra đăng nhập (thay bằng API thực tế)
+
 const mockUsers = [
     { email: "admin@example.com", password: "1234567",name: "QuyBauTroi", role: 1 }, // Admin
     { email: "quy@gmail.com", password: "123", name: "LeTan", role: 2 }, // Lễ tân
