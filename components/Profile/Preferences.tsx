@@ -18,7 +18,7 @@ export function Preferences() {
                   <p className="text-sm text-slate-500">Get notified when a new booking is made</p>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="newBookings" className="rounded text-blue-600" defaultChecked />
+                  <input type="checkbox" id="newBookings" className="rounded text-green-600" defaultChecked />
                 </div>
               </div>
               <Separator/>
@@ -28,7 +28,7 @@ export function Preferences() {
                   <p className="text-sm text-slate-500">Get notified when a booking is cancelled</p>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="newBookings" className="rounded text-blue-600" defaultChecked />
+                  <input type="checkbox" id="newBookings" className="rounded text-green-600" defaultChecked />
                 </div>
               </div>
               <Separator/>
@@ -38,7 +38,7 @@ export function Preferences() {
                   <p className="text-sm text-slate-500">Get notified about system updates and maintenance</p>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <input type="checkbox" id="newBookings" className="rounded text-blue-600" />
+                  <input type="checkbox" id="newBookings" className="rounded text-green-600" />
                 </div>
               </div>
               <Separator/>

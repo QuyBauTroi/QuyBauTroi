@@ -102,7 +102,7 @@ export function PersonalInformation() {
             <Label htmlFor="position">Position</Label>
             <Input id="position" value={currentUser?.role !== undefined ? roleMap[currentUser.role] : "Không xác định"} readOnly /> 
           </div>
-          <Button size="sm" className="mt-5 float-right">Save Chances</Button>
+          <Button size="sm" className="mt-5 float-right bg-green-300 text-black">Save Chances</Button>
         </CardContent>
       </Card>
     </div>

@@ -1,5 +1,5 @@
 "use client";
-import MainLayout from "../../components/Layout/MainLayout";
+import MainLayout from "../../../components/Layout/MainLayout";
 
 export default function StaffsPage() {
   return (

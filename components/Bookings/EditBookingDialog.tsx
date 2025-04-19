@@ -8,42 +8,33 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { type Room, roomTypeData, roomStatusData, deviceData, getRoomAmenitiesByRoomId } from "@/data/data"
+import { type Room, roomTypeData, roomStatusData, amenityData, getRoomAmenitiesByRoomId } from "@/data/data"
 
-interface EditRoomDialogProps {
+interface EditBookingDialogProps {
   room: Room
   open: boolean
   onOpenChange: (open: boolean) => void
 }
 
-export function EditRoomDialog({ room, open, onOpenChange }: EditRoomDialogProps) {
+export function EditBookingDialog({ booking, open, onOpenChange }: EditBookingDialogProps) {
   const [formData, setFormData] = useState({
-    room_number: "",
-    room_type_id: "",
-    status_id: "",
-    capacity: "",
-    description: "",
-    cleaning_status: "",
-    last_cleaned: "",
-    amenities: [] as number[],
+    guest_id : "",
+    booking_id : "",
+    room_id:"",
+    check_in_date:undefined as Date | undefined,
+    check_out_date:undefined as Date | undefined,
+
   })
 
   useEffect(() => {
-    if (room) {
-      const roomAmenities = getRoomAmenitiesByRoomId(room.room_id)
-      const amenityIds = roomAmenities.map((ra) => ra.device_id)
+    if (booking) {
+      const roomAmenities = getRoomAmenitiesByRoomId(booking.booking_id)
+      const amenityIds = roomAmenities.map((ra) => ra.amenity_id)
       setFormData({
-        room_number: room.room_number,
-        room_type_id: room.room_type_id.toString(),
-        status_id: room.status_id.toString(),
-        capacity: room.capacity.toString(),
-        description: room.description,
-        cleaning_status: room.cleaning_status,
-        last_cleaned: room.last_cleaned || "",
-        amenities: amenityIds,
+        
       })
     }
-  }, [room])
+  }, [booking])
 
   const handleAmenityChange = (amenityId: number, checked: boolean) => {
     if (checked) {
@@ -61,7 +52,6 @@ export function EditRoomDialog({ room, open, onOpenChange }: EditRoomDialogProps
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real app, you would update the room in your database here
     console.log("Updating room:", formData)
     onOpenChange(false)
   }
@@ -184,6 +174,16 @@ export function EditRoomDialog({ room, open, onOpenChange }: EditRoomDialogProps
                   </Select>
                 </div>
               </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="edit-room-customer">Khách Hàng</Label>
+                <Input
+                  id="edit-room-customer"
+                  value={formData.room_customer || "Chưa có khách"}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                />
+              </div>
+
               <div className="space-y-2">
                 <Label htmlFor="edit-room-description">Mô tả</Label>
                 <Input
@@ -208,18 +208,18 @@ export function EditRoomDialog({ room, open, onOpenChange }: EditRoomDialogProps
               <div className="space-y-2">
                 <Label>Tiện nghi</Label>
                 <div className="grid grid-cols-2 gap-4">
-                  {deviceData.map((device) => (
-                    <div key={device.device_id} className="flex items-center space-x-2">
+                  {amenityData.map((amenity) => (
+                    <div key={amenity.amenity_id} className="flex items-center space-x-2">
                       <Checkbox
-                        id={`edit-device-${device.device_id}`}
-                        checked={formData.amenities.includes(device.device_id)}
-                        onCheckedChange={(checked) => handleAmenityChange(device.device_id, checked as boolean)}
+                        id={`edit-amenity-${amenity.amenity_id}`}
+                        checked={formData.amenities.includes(amenity.amenity_id)}
+                        onCheckedChange={(checked) => handleAmenityChange(amenity.amenity_id, checked as boolean)}
                       />
                       <label
-                        htmlFor={`edit-device-${device.device_id}`}
+                        htmlFor={`edit-amenity-${amenity.amenity_id}`}
                         className="text-sm font-medium leading-none"
                       >
-                        {device.device_name}
+                        {amenity.amenity_name}
                       </label>
                     </div>
                   ))}

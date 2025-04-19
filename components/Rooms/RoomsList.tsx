@@ -41,6 +41,22 @@ export function RoomsList() {
             return <Badge variant="outline">{status.status_name}</Badge>
         }
     }
+    const getCleaningStatusBadge = (status: string) => {
+        switch (status) {
+        case "clean":
+            return <Badge className="bg-green-500 hover:bg-green-600">Đã dọn dẹp</Badge>
+        case "dirty":
+            return <Badge variant="destructive">Chưa dọn dẹp</Badge>
+        case "cleaning":
+            return (
+            <Badge variant="outline" className="border-amber-500 text-amber-500">
+                Đang dọn dẹp
+            </Badge>
+            )
+        default:
+            return <Badge variant="outline">Không xác định</Badge>
+        }
+    }
 
     const handleEdit = (room: Room) => {
         setEditingRoom(room)
@@ -55,7 +71,7 @@ export function RoomsList() {
         setIsDeleteDialogOpen(false)
     }
     const navigateToRoomDetail = (roomId: number) => {
-        router.push(`/Rooms/${roomId}`)
+        router.push(`/rooms/${roomId}`)
     }
 
 
@@ -69,10 +85,11 @@ export function RoomsList() {
                 <TableHead>Loại phòng</TableHead>
                 <TableHead>Tầng</TableHead>
                 <TableHead>Trạng thái</TableHead>
+                <TableHead>Trạng thái vệ sinh</TableHead>
                 <TableHead>Giá (VND/đêm)</TableHead>
                 <TableHead>Sức chứa</TableHead>
                 <TableHead>Đặt phòng tiếp theo</TableHead>
-                <TableHead className="text-right">Thao tác</TableHead>
+                <TableHead>Thao tác</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -86,16 +103,17 @@ export function RoomsList() {
                     <TableCell>{room.room_type?.room_type_name}</TableCell>
                     <TableCell>{room.floor}</TableCell>
                     <TableCell>{getStatusBadge(room.status_id)}</TableCell>
+                    <TableCell>{getCleaningStatusBadge(room.cleaning_status)}</TableCell>
                     <TableCell>{room.room_type?.price_per_night}</TableCell>
                     <TableCell>{room.capacity} người</TableCell>
                     <TableCell>{room.next_booking || "Không có"}</TableCell>
                     <TableCell className="text-right">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0">
-                            <span className="sr-only">Mở menu</span>
-                            <MoreHorizontal className="h-4 w-4" />
-                        </Button>
+                            <Button variant="ghost" className="h-8 w-8 p-0">
+                                <span className="sr-only">Mở menu</span>
+                                <MoreHorizontal className="h-4 w-4" />
+                            </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Thao tác</DropdownMenuLabel>

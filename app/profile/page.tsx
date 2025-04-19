@@ -14,11 +14,11 @@ export default function ProfilePage() {
   return (
     <MainLayout>
       <main className="pl-8 pt-8 mt-16">
-        <h1 className="text-2xl font-bold mb-4 border-b-2 border-b-blue-200 inline-block  ">Profile</h1>
+        <h1 className="text-2xl font-bold mb-4 border-b-2 border-b-green-200 inline-block  ">Profile</h1>
       </main>
 
       <Tabs className="ml-6 mt-4 " defaultValue="personal" >
-        <TabsList className="mb-4 bg-blue-100">
+        <TabsList className="mb-4 bg-green-100">
           <TabsTrigger value="personal" >Personal Infomation</TabsTrigger>
           <TabsTrigger value="security" >Security</TabsTrigger>
           <TabsTrigger value="preferences" >Preferences</TabsTrigger>

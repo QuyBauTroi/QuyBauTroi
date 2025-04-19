@@ -55,7 +55,7 @@ export function Security(){
                     <Label htmlFor="currentPassword">Confirm New Password</Label>
                     <Input type="password" id="cf-new-password" placeholder="Confirm your new password"></Input>
                 </div>
-                <Button size="sm" className="mt-5">Update Password</Button>
+                <Button size="sm" className="mt-5 bg-green-300 text-black">Update Password</Button>
             </CardContent>
         </Card>
       </div>

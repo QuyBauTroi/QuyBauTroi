@@ -1,18 +1,14 @@
 "use client";
-
-import { useState } from "react";
 import Navbar from "./Navbar";
 import Header from "./Header";
 import Auth from "@/components/Auth/Login";
 import { useAuth } from "@/contexts/AuthContext";
-
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const { currentUser, logout, login } = useAuth();
 
   if (!currentUser) {
@@ -21,11 +17,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   return (
     <div className="min-h-screen bg-background flex">
-      <Navbar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} onLogout={logout} />
-      <div
-        className={`flex-1 transition-all duration-300 ${sidebarOpen ? "ml-64" : "ml-26"}`}
-      >
-        <Header sidebarOpen={sidebarOpen} />
+      <Navbar onLogout={logout} role={currentUser.role.toString()} />
+      <div className={`flex-1 transition-all duration-300 md:ml-65 ml-0`}>
         {children}
       </div>
     </div>

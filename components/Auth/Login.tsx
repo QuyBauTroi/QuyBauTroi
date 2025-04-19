@@ -34,25 +34,42 @@ export default function Auth({ onLogin }: AuthProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Đăng nhập</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">Email</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 border rounded-md" placeholder="Nhập email" required />
-          </div>
-          <div className="mb-6">
-            <label className="block text-sm font-medium mb-2">Mật khẩu</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-2 border rounded-md" placeholder="Nhập mật khẩu" required/>
-          </div>
-          {error && <div className="mb-4 text-red-500 text-sm">{error}</div>}
-          <Button type="submit" className="w-full flex items-center justify-center gap-2">
-            <LogIn size={20} />
-            Đăng nhập
-          </Button>
-        </form>
-      </div>
-    </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-xs sm:max-w-sm md:max-w-md">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Đăng nhập</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-sm sm:text-base font-medium mb-2">Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-2 sm:p-3 border rounded-md text-sm sm:text-base"
+            placeholder="Nhập email"
+            required
+          />
+        </div>
+        <div className="mb-4 sm:mb-6">
+          <label className="block text-sm sm:text-base font-medium mb-2">Mật khẩu</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-2 sm:p-3 border rounded-md text-sm sm:text-base"
+            placeholder="Nhập mật khẩu"
+            required
+          />
+        </div>
+        {error && <div className="mb-4 text-red-500 text-xs sm:text-sm">{error}</div>}
+        <Button
+          type="submit"
+          className="w-full flex items-center justify-center gap-2 p-2 sm:p-3 text-sm sm:text-base"
+        >
+          <LogIn size={16} className="sm:w-5 sm:h-5" />
+          Đăng nhập
+        </Button>
+      </form>
+  </div>
+</div>
   );
 }
