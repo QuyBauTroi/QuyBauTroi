@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Filter, Search, } from "lucide-react"
 import Link from "next/link"
-import { getFullRoomData, type Room } from "@/data/data"
+import { getFullRoomData, type Room } from "@/lib/data/data"
 import RoomCard from "./RoomDeviceCard"
 
 export default function RoomsStatus() {
@@ -56,78 +56,78 @@ export default function RoomsStatus() {
   }
 
   return (
-      <div className="flex flex-col space-y-6">
-        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-          <div className="relative w-full sm:w-72">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Tìm kiếm phòng..."
-              className="pl-8"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-          <div className="flex flex-wrap gap-2 w-full sm:w-auto">
-            <Select
-              value={filter.roomType}
-              onValueChange={(value) => setFilter((prev) => ({ ...prev, roomType: value }))}
-            >
-              <SelectTrigger className="w-full sm:w-[180px]">
-                <SelectValue placeholder="Loại phòng" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Tất cả loại phòng</SelectItem>
-                <SelectItem value="standard">Standard</SelectItem>
-                <SelectItem value="deluxe">Deluxe</SelectItem>
-                <SelectItem value="suite">Suite</SelectItem>
-                <SelectItem value="presidential suite">President Suite</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select value={filter.status} onValueChange={(value) => setFilter((prev) => ({ ...prev, status: value }))}>
-              <SelectTrigger className="w-full sm:w-[180px]">
-                <SelectValue placeholder="Trạng thái" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Tất cả trạng thái</SelectItem>
-                <SelectItem value="active">Đang hoạt động</SelectItem>
-                <SelectItem value="maintenance">Bảo trì</SelectItem>
-                <SelectItem value="error">Lỗi</SelectItem>
-              </SelectContent>
-            </Select>
-            <Button variant="outline" size="icon">
-              <Filter className="h-4 w-4" />
-            </Button>
-          </div>
+    <div className="flex flex-col space-y-6">
+      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+        <div className="relative w-full sm:w-72">
+          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Input
+            placeholder="Tìm kiếm phòng..."
+            className="pl-8"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
-
-        <Tabs defaultValue="grid" className="space-y-4">
-          <TabsContent value="grid" className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {filteredRooms.map((room) => {
-                // Xác định trạng thái hiển thị
-                const hasErrorDevice = room.devices.some((device) => device.status === "error")
-                const hasMaintenanceDevice = room.devices.some((device) => device.status === "maintenance")
-                let displayStatus = "active"
-
-                if (hasErrorDevice) {
-                  displayStatus = "error"
-                } else if (hasMaintenanceDevice || room.status?.status_name === "Bảo trì") {
-                  displayStatus = "maintenance"
-                }
-
-                return (
-                  <RoomCard
-                    key={room.room_id}
-                    roomNumber={room.room_number}
-                    status={displayStatus as any}
-                    roomType={(room.room_type?.room_type_name?.toLowerCase() || "standard") as any}
-                  />
-                )
-              })}
-            </div>
-          </TabsContent>
-        </Tabs>
+        <div className="flex flex-wrap gap-2 w-full sm:w-auto">
+          <Select
+            value={filter.roomType}
+            onValueChange={(value) => setFilter((prev) => ({ ...prev, roomType: value }))}
+          >
+            <SelectTrigger className="w-full sm:w-[180px]">
+              <SelectValue placeholder="Loại phòng" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Tất cả loại phòng</SelectItem>
+              <SelectItem value="standard">Standard</SelectItem>
+              <SelectItem value="deluxe">Deluxe</SelectItem>
+              <SelectItem value="suite">Suite</SelectItem>
+              <SelectItem value="presidential suite">President Suite</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={filter.status} onValueChange={(value) => setFilter((prev) => ({ ...prev, status: value }))}>
+            <SelectTrigger className="w-full sm:w-[180px]">
+              <SelectValue placeholder="Trạng thái" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Tất cả trạng thái</SelectItem>
+              <SelectItem value="active">Đang hoạt động</SelectItem>
+              <SelectItem value="maintenance">Bảo trì</SelectItem>
+              <SelectItem value="error">Lỗi</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button variant="outline" size="icon">
+            <Filter className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
+
+      <Tabs defaultValue="grid" className="space-y-4">
+        <TabsContent value="grid" className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {filteredRooms.map((room) => {
+              // Xác định trạng thái hiển thị
+              const hasErrorDevice = room.devices.some((device) => device.status === "error")
+              const hasMaintenanceDevice = room.devices.some((device) => device.status === "maintenance")
+              let displayStatus = "active"
+
+              if (hasErrorDevice) {
+                displayStatus = "error"
+              } else if (hasMaintenanceDevice || room.status?.status_name === "Bảo trì") {
+                displayStatus = "maintenance"
+              }
+
+              return (
+                <RoomCard
+                  key={room.room_id}
+                  roomNumber={room.room_number}
+                  status={displayStatus as any}
+                  roomType={(room.room_type?.room_type_name?.toLowerCase() || "standard") as any}
+                />
+              )
+            })}
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import { getRoomByNumber } from "@/data/data"
+import { getRoomByNumber } from "@/lib/data/data"
 import ControlDeviceDetail from "@/components/Devices/ReceptionistDevice/ControlDeviceDetail"
 import MainLayout from "@/components/Layout/MainLayout"
 
@@ -16,9 +16,9 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <MainLayout>
-      <ControlDeviceDetail 
+      <ControlDeviceDetail
         room={room}
-        devices={room.devices} 
+        devices={room.devices}
       />
     </MainLayout>
   )

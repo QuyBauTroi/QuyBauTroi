@@ -1,14 +1,14 @@
 "use client"
-import { useCallback, useState } from "react"
+import { useCallback } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Slider } from "@/components/ui/slider"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Bath, BedDouble, Coffee, Fan, Film, LightbulbIcon, Lock, Music, Power, ShowerHeadIcon as Shower, Sofa, Speaker, ThermometerSun, Tv } from "lucide-react"
-import type { Device } from "@/data/data"
+import type { Device } from "@/lib/data/data"
 import debounce from "lodash.debounce";
 import { useDeviceStore } from "@/lib/device-store";
 import { useEffect } from "react"
@@ -232,7 +232,7 @@ export default function RoomDeviceControl({ roomType, devices, roomNumber }: Roo
                       step={1}
                       onValueChange={(value) => updateDeviceState(acDevice.id, "temperature", value[0])}
                       disabled={!deviceStates[acDevice.id]?.power || acDevice.status !== "active"}
-            
+
                     />
                   </div>
                   <div className="space-y-2">
@@ -289,7 +289,7 @@ export default function RoomDeviceControl({ roomType, devices, roomNumber }: Roo
                       step={1}
                       onValueChange={(value) => updateDeviceState(mainLightDevice.id, "brightness", value[0])}
                       disabled={!deviceStates[mainLightDevice.id]?.power || mainLightDevice.status !== "active"}
-                      className="[&_[role='range']]:bg-green-500 [&_[role=range]]:h-2"              
+                      className="[&_[role='range']]:bg-green-500 [&_[role=range]]:h-2"
                     />
                   </div>
                   <div className="space-y-2">
@@ -298,29 +298,29 @@ export default function RoomDeviceControl({ roomType, devices, roomNumber }: Roo
                       <div className="w-6 h-6 rounded-full border-2 " style={{ backgroundColor: deviceStates[mainLightDevice.id]?.color || "#ffffff" }}></div>
                     </div>
                     <div className="relative w-10 h-10">
-                    {/* Hiển thị màu hiện tại */}
-                    <div
-                      className="w-7 h-7 rounded-full border-2 border-slate-300 cursor-pointer"
-                      style={{
-                        backgroundColor: deviceStates[mainLightDevice.id]?.color || "#ffffff",
-                      }}
-                      onClick={() => document.getElementById("color")?.click()}
-                    ></div>
-                    {/* Input color ẩn đi */}
-                    <input
-                      type="color"
-                      id="color"
-                      value={deviceStates[mainLightDevice.id]?.color || "#ffffff"}
-                      onChange={(e) =>
-                        updateDeviceStateDebounced(mainLightDevice.id, "color", e.target.value)
-                      }
-                      disabled={
-                        !deviceStates[mainLightDevice.id]?.power ||
-                        mainLightDevice.status !== "active"
-                      }
-                      className="absolute inset-0 opacity-0 cursor-pointer"
-                    />
-                  </div>
+                      {/* Hiển thị màu hiện tại */}
+                      <div
+                        className="w-7 h-7 rounded-full border-2 border-slate-300 cursor-pointer"
+                        style={{
+                          backgroundColor: deviceStates[mainLightDevice.id]?.color || "#ffffff",
+                        }}
+                        onClick={() => document.getElementById("color")?.click()}
+                      ></div>
+                      {/* Input color ẩn đi */}
+                      <input
+                        type="color"
+                        id="color"
+                        value={deviceStates[mainLightDevice.id]?.color || "#ffffff"}
+                        onChange={(e) =>
+                          updateDeviceStateDebounced(mainLightDevice.id, "color", e.target.value)
+                        }
+                        disabled={
+                          !deviceStates[mainLightDevice.id]?.power ||
+                          mainLightDevice.status !== "active"
+                        }
+                        className="absolute inset-0 opacity-0 cursor-pointer"
+                      />
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -898,24 +898,24 @@ export default function RoomDeviceControl({ roomType, devices, roomNumber }: Roo
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="h-auto py-4 flex flex-col items-center gap-2"
               onClick={() => handleQuickControl("lights")}
             >
               <LightbulbIcon className="h-6 w-6" />
               <span>Tắt tất cả đèn</span>
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="h-auto py-4 flex flex-col items-center gap-2"
               onClick={() => handleQuickControl("energy")}
             >
               <ThermometerSun className="h-6 w-6" />
               <span>Chế độ tiết kiệm</span>
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="h-auto py-4 flex flex-col items-center gap-2"
               onClick={() => handleQuickControl("locks")}
             >
@@ -924,7 +924,7 @@ export default function RoomDeviceControl({ roomType, devices, roomNumber }: Roo
             </Button>
           </div>
           <div className="pt-2">
-            <Button 
+            <Button
               className="w-full bg-green-300 text-black hover:bg-gray-200"
               onClick={handleLeaveRoom}
             >

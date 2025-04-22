@@ -6,93 +6,93 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { EditRoomDialog } from "@/components/Rooms/EditRoomDialog"
-import {AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,} from "@/components/ui/alert-dialog"
-import { ArrowLeft, Edit, Trash2, Calendar, ClipboardList, User } from "lucide-react"
-import { getFullRoomData, getRoomStatusById, type Room,} from "@/data/data"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, } from "@/components/ui/alert-dialog"
+import { ArrowLeft, Edit, Trash2, Calendar, ClipboardList, User,ThermometerSun,LightbulbIcon,Tv,DoorClosed,Coffee,Wifi } from "lucide-react"
+import { getFullRoomData, getRoomStatusById, type Room, } from "@/lib/data/data"
 
 interface RoomDetailPageProps {
   roomId: number
 }
 
 export function RoomDetailPage({ roomId }: RoomDetailPageProps) {
-    const router = useRouter()
-    const [room, setRoom] = useState<Room | null>(null)
-    const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
-    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
-    const [loading, setLoading] = useState(true)
+  const router = useRouter()
+  const [room, setRoom] = useState<Room | null>(null)
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
+  const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        const rooms = getFullRoomData()
-        const foundRoom = rooms.find((r) => r.room_id === roomId)
-        setRoom(foundRoom || null)
-        setLoading(false)
-    }, [roomId])
+  useEffect(() => {
+    const rooms = getFullRoomData()
+    const foundRoom = rooms.find((r) => r.room_id === roomId)
+    setRoom(foundRoom || null)
+    setLoading(false)
+  }, [roomId])
 
-    const handleEdit = () => {
-        setIsEditDialogOpen(true)
-    }
-    const handleDelete = () => {
-        setIsDeleteDialogOpen(true)
-    }
-    const confirmDelete = () => {
-        console.log(`Deleting room with ID: ${roomId}`)
-        setIsDeleteDialogOpen(false)
-        router.push("/rooms")
-    }
-    const getStatusBadge = (statusId: number) => {
-        const status = getRoomStatusById(statusId)
+  const handleEdit = () => {
+    setIsEditDialogOpen(true)
+  }
+  const handleDelete = () => {
+    setIsDeleteDialogOpen(true)
+  }
+  const confirmDelete = () => {
+    console.log(`Deleting room with ID: ${roomId}`)
+    setIsDeleteDialogOpen(false)
+    router.push("/rooms")
+  }
+  const getStatusBadge = (statusId: number) => {
+    const status = getRoomStatusById(statusId)
 
-        if (!status) return <Badge variant="outline">Không xác định</Badge>
+    if (!status) return <Badge variant="outline">Không xác định</Badge>
 
-        switch (status.status_name) {
-        case "Trống":
-            return <Badge className="bg-green-500 hover:bg-green-600">Trống</Badge>
-        case "Đang sử dụng":
-            return <Badge className="bg-blue-500 hover:bg-blue-600">Đang sử dụng</Badge>
-        case "Bảo trì":
-            return <Badge variant="destructive">Bảo trì</Badge>
-        case "Đang dọn dẹp":
-            return (
-            <Badge variant="outline" className="border-amber-500 text-amber-500">
-                Đang dọn dẹp
-            </Badge>
-            )
-        default:
-            return <Badge variant="outline">{status.status_name}</Badge>
-        }
-    }
-    const getCleaningStatusBadge = (status: string) => {
-        switch (status) {
-        case "clean":
-            return <Badge className="bg-green-500 hover:bg-green-600">Đã dọn dẹp</Badge>
-        case "dirty":
-            return <Badge variant="destructive">Chưa dọn dẹp</Badge>
-        case "cleaning":
-            return (
-            <Badge variant="outline" className="border-amber-500 text-amber-500">
-                Đang dọn dẹp
-            </Badge>
-            )
-        default:
-            return <Badge variant="outline">Không xác định</Badge>
-        }
-    }
-    if (!room) {
+    switch (status.status_name) {
+      case "Trống":
+        return <Badge className="bg-green-500 hover:bg-green-600">Trống</Badge>
+      case "Đang sử dụng":
+        return <Badge className="bg-blue-500 hover:bg-blue-600">Đang sử dụng</Badge>
+      case "Bảo trì":
+        return <Badge variant="destructive">Bảo trì</Badge>
+      case "Đang dọn dẹp":
         return (
-        <div>
-            <div>
-            <h2>Không tìm thấy phòng</h2>
-            <p>Phòng bạn đang tìm kiếm không tồn tại</p>
-            </div>
-            <Button onClick={() => router.push("/rooms")} variant="outline" className="mt-4">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Quay lại danh sách phòng
-            </Button>
-        </div>
+          <Badge variant="outline" className="border-amber-500 text-amber-500">
+            Đang dọn dẹp
+          </Badge>
         )
+      default:
+        return <Badge variant="outline">{status.status_name}</Badge>
     }
+  }
+  const getCleaningStatusBadge = (status: string) => {
+    switch (status) {
+      case "clean":
+        return <Badge className="bg-green-500 hover:bg-green-600">Đã dọn dẹp</Badge>
+      case "dirty":
+        return <Badge variant="destructive">Chưa dọn dẹp</Badge>
+      case "cleaning":
+        return (
+          <Badge variant="outline" className="border-amber-500 text-amber-500">
+            Đang dọn dẹp
+          </Badge>
+        )
+      default:
+        return <Badge variant="outline">Không xác định</Badge>
+    }
+  }
+  if (!room) {
+    return (
+      <div>
+        <div>
+          <h2>Không tìm thấy phòng</h2>
+          <p>Phòng bạn đang tìm kiếm không tồn tại</p>
+        </div>
+        <Button onClick={() => router.push("/rooms")} variant="outline" className="mt-4">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Quay lại danh sách phòng
+        </Button>
+      </div>
+    )
+  }
 
-  
+
 
   return (
     <div>
@@ -182,6 +182,61 @@ export function RoomDetailPage({ roomId }: RoomDetailPageProps) {
             </div>
           </CardContent>
         </Card>
+    
+        <Card className="border-green-300 border-2">
+            <CardHeader className="pb-2">
+              <CardTitle>Trạng thái thiết bị</CardTitle>
+              <CardDescription>Tình trạng các thiết bị trong phòng</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2 md:space-y-3">
+                {room.devices.slice(0, 10).map((device) => (
+                  <div key={device.id} className="flex justify-between items-center p-2 border-b">
+                    <div className="flex items-center gap-2">
+                      {device.type === "ac" ? (
+                        <ThermometerSun className="h-4 w-4 text-orange-500" />) 
+                        : device.type === "light" || device.type === "bedside-light" || device.type === "bathroom-light" ? (
+                        <LightbulbIcon className="h-4 w-4 text-yellow-500" />
+                      ) : device.type === "tv" ? (
+                        <Tv className="h-4 w-4 text-blue-500" />
+                      ) : device.type === "lock" ? (
+                        <DoorClosed className="h-4 w-4 text-slate-500" />
+                      ) : device.type === "coffee-machine" ? (
+                        <Coffee className="h-4 w-4 text-amber-700" />
+                      ) : (
+                        <Wifi className="h-4 w-4 text-blue-500" />
+                      )}
+                      <span className="text-sm">{device.name}</span>
+                    </div>
+                    <Badge
+                      variant={
+                        device.status === "active"
+                          ? "outline"
+                          : device.status === "error"
+                            ? "destructive"
+                            : "secondary"
+                      }
+                      className={device.status === "active" ? "bg-green-50" : ""}
+                    >
+                      {device.status === "active"
+                        ? "Hoạt động"
+                        : device.status === "error"
+                          ? "Lỗi"
+                          : device.status === "maintenance"
+                            ? "Bảo trì"
+                            : "Không hoạt động"}
+                    </Badge>
+                  </div>
+                ))}
+                {room.devices.length > 8 && (
+                  <Button variant="ghost" size="sm" className="w-full mt-2">
+                    Xem thêm {room.devices.length - 8} thiết bị
+                  </Button>
+                )}
+              </div>
+            </CardContent>
+        </Card>
+  
       </div>
 
       <Tabs defaultValue="bookings" className="mt-6">

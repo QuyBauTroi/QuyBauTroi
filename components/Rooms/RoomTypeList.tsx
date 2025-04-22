@@ -2,12 +2,12 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Dialog,DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle,} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { PlusCircle, Edit, Trash2 } from "lucide-react"
-import { roomTypeData, type RoomType } from "../../data/data"
+import { roomTypeData, type RoomType } from "../../lib/data/data"
 
 export function RoomTypesList() {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
@@ -22,8 +22,8 @@ export function RoomTypesList() {
     const amenityIds = amenitiesStr.split(",")
     const amenityMap: Record<string, string> = {
       "1": "WiFi", "2": "TV", "3": "Điều hòa", "4": "Minibar",
-      "5": "Két an toàn", "6": "Bồn tắm","7": "Jacuzzi",
-      "8": "Phòng khách","9": "Bếp","10": "Hồ bơi riêng", "11": "Dịch vụ quản gia",
+      "5": "Két an toàn", "6": "Bồn tắm", "7": "Jacuzzi",
+      "8": "Phòng khách", "9": "Bếp", "10": "Hồ bơi riêng", "11": "Dịch vụ quản gia",
     }
     return amenityIds.map((id) => amenityMap[id] || `Tiện nghi ${id}`)
   }

@@ -1,4 +1,5 @@
-import { Device } from "@/types/device";
+
+import { Device, DeviceSettings } from "@/types/device";
 
 const API_URL = "http://localhost:3001";
 
@@ -46,15 +47,18 @@ export const deviceService = {
     if (!response.ok) throw new Error("Failed to delete device");
   },
 
-  updateDeviceState: async (id: string, state: Partial<Device["state"]>): Promise<Device> => {
-    const currentDevice = await fetch(`${API_URL}/devices/${id}`).then(res => res.json());
-    // Cập nhật chỉ trường power trong state và giữ nguyên toàn bộ thông tin khác
+  updateDeviceState: async <T extends Device["type"]>(
+    id: string,
+    state: Partial<DeviceSettings[T]>
+  ): Promise<Device> => {
+    const currentDevice = await fetch(`${API_URL}/devices/${id}`).then((res) => res.json());
+    // Cập nhật state, giữ nguyên các trường khác
     const updatedDevice = {
       ...currentDevice,
       state: {
         ...currentDevice.state,
-        power: state.power
-      }
+        ...state, // Gộp tất cả các trường được gửi (power, temperature, v.v.)
+      },
     };
 
     const response = await fetch(`${API_URL}/devices/${id}`, {

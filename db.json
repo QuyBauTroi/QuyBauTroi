@@ -34,7 +34,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "brightness": 100,
         "color": "#ffffff"
       },
@@ -53,7 +53,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "temperature": 25,
         "mode": "cool",
         "fanSpeed": "auto"
@@ -73,7 +73,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "brightness": 100,
         "color": "#ffffff"
       },
@@ -92,7 +92,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "temperature": 25,
         "mode": "cool",
         "fanSpeed": "auto"
@@ -112,7 +112,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "brightness": 100,
         "color": "#ffffff"
       },
@@ -131,7 +131,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "brightness": 100,
         "color": "#ffffff"
       },
@@ -150,7 +150,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "temperature": 25,
         "mode": "cool",
         "fanSpeed": "auto"
@@ -170,7 +170,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "brightness": 100,
         "color": "#ffffff"
       },
@@ -189,218 +189,12 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": true,
+        "power": false,
         "temperature": 25,
         "mode": "cool",
         "fanSpeed": "auto"
       },
       "roomId": 5
-    }
-  ],
-  "deviceControlLogs": [
-    {
-      "id": "log-1",
-      "deviceId": "device-1",
-      "deviceName": "Điều hòa phòng 101",
-      "timestamp": "2023-05-15T08:30:00Z",
-      "action": "Bật thiết bị",
-      "user": "Nhân viên lễ tân",
-      "details": "power: true",
-      "success": true
-    },
-    {
-      "id": "log-2",
-      "deviceId": "device-1",
-      "deviceName": "Điều hòa phòng 101",
-      "timestamp": "2023-05-15T12:45:00Z",
-      "action": "Điều chỉnh nhiệt độ",
-      "user": "Khách hàng",
-      "details": "temperature: 24",
-      "success": true
-    },
-    {
-      "id": "log-3",
-      "deviceId": "device-2",
-      "deviceName": "Đèn chính phòng 101",
-      "timestamp": "2023-05-15T18:20:00Z",
-      "action": "Bật đèn",
-      "user": "Khách hàng",
-      "details": "power: true, brightness: 80",
-      "success": true
-    },
-    {
-      "id": "log-4",
-      "deviceId": "device-3",
-      "deviceName": "TV phòng 101",
-      "timestamp": "2023-05-15T20:10:00Z",
-      "action": "Thay đổi nguồn tín hiệu",
-      "user": "Khách hàng",
-      "details": "source: netflix",
-      "success": true
-    },
-    {
-      "id": "log-5",
-      "deviceId": "device-4",
-      "deviceName": "Khóa cửa phòng 101",
-      "timestamp": "2023-05-16T07:30:00Z",
-      "action": "Mở khóa",
-      "user": "Nhân viên lễ tân",
-      "details": "locked: false",
-      "success": true
-    },
-    {
-      "id": "log-6",
-      "deviceId": "device-5",
-      "deviceName": "Đèn đầu giường phòng 102",
-      "timestamp": "2023-05-16T22:15:00Z",
-      "action": "Điều chỉnh độ sáng",
-      "user": "Khách hàng",
-      "details": "brightness: 30",
-      "success": true
-    },
-    {
-      "id": "log-7",
-      "deviceId": "device-6",
-      "deviceName": "Đèn phòng tắm 102",
-      "timestamp": "2023-05-17T06:45:00Z",
-      "action": "Bật đèn",
-      "user": "Khách hàng",
-      "details": "power: true",
-      "success": true
-    },
-    {
-      "id": "log-8",
-      "deviceId": "device-7",
-      "deviceName": "Máy pha cà phê phòng 201",
-      "timestamp": "2023-05-17T08:00:00Z",
-      "action": "Pha cà phê",
-      "user": "Khách hàng",
-      "details": "coffeeType: espresso",
-      "success": true
-    },
-    {
-      "id": "log-9",
-      "deviceId": "device-8",
-      "deviceName": "Máy lọc không khí phòng 201",
-      "timestamp": "2023-05-17T14:30:00Z",
-      "action": "Thay đổi chế độ",
-      "user": "Nhân viên dọn phòng",
-      "details": "mode: turbo",
-      "success": true
-    },
-    {
-      "id": "log-10",
-      "deviceId": "device-9",
-      "deviceName": "Hệ thống âm thanh phòng 301",
-      "timestamp": "2023-05-18T19:20:00Z",
-      "action": "Điều chỉnh âm lượng",
-      "user": "Khách hàng",
-      "details": "volume: 60",
-      "success": true
-    }
-  ],
-  "deviceErrorLogs": [
-    {
-      "id": "error-1",
-      "deviceId": "coffee-machine-1",
-      "deviceName": "Máy pha cà phê",
-      "timestamp": "2023-11-09T18:20:00Z",
-      "errorCode": "E-102",
-      "errorMessage": "Lỗi áp suất nước",
-      "status": "pending",
-      "roomNumber": "201"
-    },
-    {
-      "id": "error-2",
-      "deviceId": "music-system-1",
-      "deviceName": "Hệ thống âm thanh",
-      "timestamp": "2023-11-08T14:30:00Z",
-      "errorCode": "E-201",
-      "errorMessage": "Lỗi kết nối Bluetooth",
-      "status": "in-progress",
-      "roomNumber": "301"
-    },
-    {
-      "id": "error-3",
-      "deviceId": "tv-1",
-      "deviceName": "TV",
-      "timestamp": "2023-11-05T10:15:00Z",
-      "errorCode": "E-301",
-      "errorMessage": "Lỗi kết nối HDMI",
-      "status": "resolved",
-      "resolvedAt": "2023-11-05T14:30:00Z",
-      "resolvedBy": "Kỹ thuật viên C",
-      "roomNumber": "101"
-    }
-  ],
-  "roomStatuses": [
-    {
-      "status_id": 1,
-      "status_name": "Trống",
-      "color": "green",
-      "description": "Phòng sẵn sàng để đặt"
-    },
-    {
-      "status_id": 2,
-      "status_name": "Đang sử dụng",
-      "color": "blue",
-      "description": "Phòng đang có khách"
-    },
-    {
-      "status_id": 3,
-      "status_name": "Bảo trì",
-      "color": "red",
-      "description": "Phòng đang được sửa chữa"
-    },
-    {
-      "status_id": 4,
-      "status_name": "Đã đặt",
-      "color": "purple",
-      "description": "Phòng đã được đặt trước"
-    },
-    {
-      "status_id": 5,
-      "status_name": "Đang dọn dẹp",
-      "color": "amber",
-      "description": "Phòng đang được dọn dẹp"
-    }
-  ],
-  "roomTypes": [
-    {
-      "room_type_id": 1,
-      "room_type_name": "Standard",
-      "description": "Phòng tiêu chuẩn với đầy đủ tiện nghi cơ bản.",
-      "price_per_night": "800,000",
-      "max_adults": 2,
-      "max_children": 1,
-      "room_count": 20
-    },
-    {
-      "room_type_id": 2,
-      "room_type_name": "Deluxe",
-      "description": "Phòng cao cấp với không gian rộng rãi và view đẹp.",
-      "price_per_night": "1,200,000",
-      "max_adults": 2,
-      "max_children": 2,
-      "room_count": 15
-    },
-    {
-      "room_type_id": 3,
-      "room_type_name": "Suite",
-      "description": "Phòng suite sang trọng với phòng khách riêng biệt.",
-      "price_per_night": "2,500,000",
-      "max_adults": 3,
-      "max_children": 2,
-      "room_count": 10
-    },
-    {
-      "room_type_id": 4,
-      "room_type_name": "Presidential Suite",
-      "description": "Phòng suite tổng thống với dịch vụ cao cấp nhất.",
-      "price_per_night": "5,000,000",
-      "max_adults": 4,
-      "max_children": 2,
-      "room_count": 2
     }
   ],
   "rooms": [
@@ -415,10 +209,8 @@
       "floor": 1,
       "last_cleaned": "09/04/2025",
       "next_booking": null,
-      "devices": [
-        "1",
-        "2"
-      ]
+      "devices": ["1", "2"],
+      "id": "604c"
     },
     {
       "room_id": 2,
@@ -431,10 +223,8 @@
       "floor": 1,
       "last_cleaned": "08/04/2025",
       "next_booking": null,
-      "devices": [
-        "3",
-        "4"
-      ]
+      "devices": ["3", "4"],
+      "id": "93be"
     },
     {
       "room_id": 3,
@@ -447,10 +237,8 @@
       "floor": 2,
       "last_cleaned": "07/04/2025",
       "next_booking": "15/04/2025",
-      "devices": [
-        "5",
-        "6"
-      ]
+      "devices": ["5", "6"],
+      "id": "59b1"
     },
     {
       "room_id": 4,
@@ -463,10 +251,8 @@
       "floor": 2,
       "last_cleaned": "09/04/2025",
       "next_booking": "16/04/2025",
-      "devices": [
-        "7",
-        "8"
-      ]
+      "devices": ["7", "8"],
+      "id": "3d69"
     },
     {
       "room_id": 5,
@@ -479,35 +265,243 @@
       "floor": 3,
       "last_cleaned": "08/04/2025",
       "next_booking": null,
-      "devices": [
-        "9",
-        "10"
-      ]
+      "devices": ["9", "10"],
+      "id": "b2be"
+    }
+  ],
+  "deviceControlLogs": [
+    {
+      "id": "log-1",
+      "deviceId": "1",
+      "deviceName": "Điều hòa phòng 101",
+      "timestamp": "2023-05-15T08:30:00Z",
+      "action": "Bật thiết bị",
+      "user": "Nhân viên lễ tân",
+      "details": "power: true",
+      "success": true
+    },
+    {
+      "id": "log-2",
+      "deviceId": "1",
+      "deviceName": "Điều hòa phòng 101",
+      "timestamp": "2023-05-15T12:45:00Z",
+      "action": "Điều chỉnh nhiệt độ",
+      "user": "Khách hàng",
+      "details": "temperature: 24",
+      "success": true
+    },
+    {
+      "id": "log-3",
+      "deviceId": "2",
+      "deviceName": "Đèn chính phòng 101",
+      "timestamp": "2023-05-15T18:20:00Z",
+      "action": "Bật đèn",
+      "user": "Khách hàng",
+      "details": "power: true, brightness: 80",
+      "success": true
+    },
+    {
+      "id": "log-4",
+      "deviceId": "3",
+      "deviceName": "Điều hòa phòng 102",
+      "timestamp": "2023-05-15T20:10:00Z",
+      "action": "Thay đổi chế độ",
+      "user": "Khách hàng",
+      "details": "mode: fan",
+      "success": true
+    },
+    {
+      "id": "log-5",
+      "deviceId": "4",
+      "deviceName": "Đèn chính phòng 102",
+      "timestamp": "2023-05-16T07:30:00Z",
+      "action": "Bật đèn",
+      "user": "Nhân viên lễ tân",
+      "details": "power: true",
+      "success": true
+    },
+    {
+      "id": "log-6",
+      "deviceId": "5",
+      "deviceName": "Điều hòa phòng 201",
+      "timestamp": "2023-05-16T22:15:00Z",
+      "action": "Điều chỉnh nhiệt độ",
+      "user": "Khách hàng",
+      "details": "temperature: 22",
+      "success": true
+    },
+    {
+      "id": "log-7",
+      "deviceId": "6",
+      "deviceName": "Đèn chính phòng 201",
+      "timestamp": "2023-05-17T06:45:00Z",
+      "action": "Bật đèn",
+      "user": "Khách hàng",
+      "details": "power: true",
+      "success": true
+    },
+    {
+      "id": "log-8",
+      "deviceId": "7",
+      "deviceName": "Đèn chính phòng 202",
+      "timestamp": "2023-05-17T08:00:00Z",
+      "action": "Điều chỉnh độ sáng",
+      "user": "Khách hàng",
+      "details": "brightness: 50",
+      "success": true
+    },
+    {
+      "id": "log-9",
+      "deviceId": "8",
+      "deviceName": "Điều hòa phòng 202",
+      "timestamp": "2023-05-17T14:30:00Z",
+      "action": "Thay đổi chế độ",
+      "user": "Nhân viên dọn phòng",
+      "details": "mode: auto",
+      "success": true
+    },
+    {
+      "id": "log-10",
+      "deviceId": "9",
+      "deviceName": "Đèn chính phòng 301",
+      "timestamp": "2023-05-18T19:20:00Z",
+      "action": "Điều chỉnh độ sáng",
+      "user": "Khách hàng",
+      "details": "brightness: 60",
+      "success": true
+    }
+  ],
+  "deviceErrorLogs": [
+    {
+      "id": "error-1",
+      "deviceId": "8",
+      "deviceName": "Điều hòa phòng 202",
+      "timestamp": "2023-11-09T18:20:00Z",
+      "errorCode": "E-102",
+      "errorMessage": "Lỗi áp suất nước",
+      "status": "pending",
+      "roomNumber": "202"
+    },
+    {
+      "id": "error-2",
+      "deviceId": "9",
+      "deviceName": "Đèn chính phòng 301",
+      "timestamp": "2023-11-08T14:30:00Z",
+      "errorCode": "E-201",
+      "errorMessage": "Lỗi kết nối Bluetooth",
+      "status": "in-progress",
+      "roomNumber": "301"
+    },
+    {
+      "id": "error-3",
+      "deviceId": "3",
+      "deviceName": "Điều hòa phòng 102",
+      "timestamp": "2023-11-05T10:15:00Z",
+      "errorCode": "E-301",
+      "errorMessage": "Lỗi kết nối cảm biến",
+      "status": "resolved",
+      "resolvedAt": "2023-11-05T14:30:00Z",
+      "resolvedBy": "Kỹ thuật viên C",
+      "roomNumber": "102"
+    }
+  ],
+  "roomStatuses": [
+    {
+      "status_id": 1,
+      "status_name": "Trống",
+      "color": "green",
+      "description": "Phòng sẵn sàng để đặt",
+      "id": "511f"
+    },
+    {
+      "status_id": 2,
+      "status_name": "Đang sử dụng",
+      "color": "blue",
+      "description": "Phòng đang có khách",
+      "id": "cca3"
+    },
+    {
+      "status_id": 3,
+      "status_name": "Bảo trì",
+      "color": "red",
+      "description": "Phòng đang được sửa chữa",
+      "id": "5a35"
+    },
+    {
+      "status_id": 4,
+      "status_name": "Đã đặt",
+      "color": "purple",
+      "description": "Phòng đã được đặt trước",
+      "id": "1aa6"
+    },
+    {
+      "status_id": 5,
+      "status_name": "Đang dọn dẹp",
+      "color": "amber",
+      "description": "Phòng đang được dọn dẹp",
+      "id": "491f"
+    }
+  ],
+  "roomTypes": [
+    {
+      "room_type_id": 1,
+      "room_type_name": "Standard",
+      "description": "Phòng tiêu chuẩn với đầy đủ tiện nghi cơ bản.",
+      "price_per_night": "800,000",
+      "max_adults": 2,
+      "max_children": 1,
+      "room_count": 20,
+      "id": "49ca"
+    },
+    {
+      "room_type_id": 2,
+      "room_type_name": "Deluxe",
+      "description": "Phòng cao cấp với không gian rộng rãi và view đẹp.",
+      "price_per_night": "1,200,000",
+      "max_adults": 2,
+      "max_children": 2,
+      "room_count": 15,
+      "id": "0ba6"
+    },
+    {
+      "room_type_id": 3,
+      "room_type_name": "Suite",
+      "description": "Phòng suite sang trọng với phòng khách riêng biệt.",
+      "price_per_night": "2,500,000",
+      "max_adults": 3,
+      "max_children": 2,
+      "room_count": 10,
+      "id": "a09d"
+    },
+    {
+      "room_type_id": 4,
+      "room_type_name": "Presidential Suite",
+      "description": "Phòng suite tổng thống với dịch vụ cao cấp nhất.",
+      "price_per_night": "5,000,000",
+      "max_adults": 4,
+      "max_children": 2,
+      "room_count": 2,
+      "id": "b722"
     }
   ],
   "floors": [
     {
       "floor_id": 1,
       "floor_number": 1,
-      "rooms": [
-        "1",
-        "2"
-      ]
+      "rooms": ["1", "2"],
+      "id": "2546"
     },
     {
       "floor_id": 2,
       "floor_number": 2,
-      "rooms": [
-        "3",
-        "4"
-      ]
+      "rooms": ["3", "4"],
+      "id": "d528"
     },
     {
       "floor_id": 3,
       "floor_number": 3,
-      "rooms": [
-        "5"
-      ]
+      "rooms": ["5"],
+      "id": "0e45"
     }
   ]
 }

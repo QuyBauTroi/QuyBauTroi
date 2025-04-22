@@ -76,6 +76,5 @@ export interface Device<T extends DeviceType = DeviceType> {
   serialNumber?: string;
   isOnline?: boolean;
   lastOnline?: string;
-  batteryLevel?: number;
   roomId?: number;
 }

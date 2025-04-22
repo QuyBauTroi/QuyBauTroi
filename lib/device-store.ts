@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
-import type { Device } from "@/data/data"
+import type { Device } from "@/lib/data/data"
 
 // Định nghĩa kiểu dữ liệu cho trạng thái thiết bị
 export interface DeviceState {

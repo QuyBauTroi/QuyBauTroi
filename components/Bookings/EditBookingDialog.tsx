@@ -1,14 +1,14 @@
 "use client"
 import type React from "react"
 import { useState, useEffect } from "react"
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle,} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { type Room, roomTypeData, roomStatusData, amenityData, getRoomAmenitiesByRoomId } from "@/data/data"
+import { type Room, roomTypeData, roomStatusData, amenityData, getRoomAmenitiesByRoomId } from "@/lib/data/data"
 
 interface EditBookingDialogProps {
   room: Room
@@ -18,11 +18,11 @@ interface EditBookingDialogProps {
 
 export function EditBookingDialog({ booking, open, onOpenChange }: EditBookingDialogProps) {
   const [formData, setFormData] = useState({
-    guest_id : "",
-    booking_id : "",
-    room_id:"",
-    check_in_date:undefined as Date | undefined,
-    check_out_date:undefined as Date | undefined,
+    guest_id: "",
+    booking_id: "",
+    room_id: "",
+    check_in_date: undefined as Date | undefined,
+    check_out_date: undefined as Date | undefined,
 
   })
 
@@ -31,7 +31,7 @@ export function EditBookingDialog({ booking, open, onOpenChange }: EditBookingDi
       const roomAmenities = getRoomAmenitiesByRoomId(booking.booking_id)
       const amenityIds = roomAmenities.map((ra) => ra.amenity_id)
       setFormData({
-        
+
       })
     }
   }, [booking])
