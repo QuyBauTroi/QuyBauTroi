@@ -15,9 +15,9 @@
       "lastOnline": "2023-11-10T08:30:00Z",
       "state": {
         "power": false,
-        "temperature": 24,
+        "temperature": 28,
         "mode": "cool",
-        "fanSpeed": "auto"
+        "fanSpeed": "medium"
       },
       "roomId": 1
     },
@@ -34,7 +34,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": false,
+        "power": true,
         "brightness": 100,
         "color": "#ffffff"
       },
@@ -53,7 +53,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": false,
+        "power": true,
         "temperature": 25,
         "mode": "cool",
         "fanSpeed": "auto"
@@ -73,7 +73,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": false,
+        "power": true,
         "brightness": 100,
         "color": "#ffffff"
       },
@@ -92,7 +92,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": false,
+        "power": true,
         "temperature": 25,
         "mode": "cool",
         "fanSpeed": "auto"
@@ -170,7 +170,7 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": false,
+        "power": true,
         "brightness": 100,
         "color": "#ffffff"
       },
@@ -189,12 +189,73 @@
       "installDate": "2024-01-01",
       "lastOnline": "2024-03-20T10:00:00Z",
       "state": {
-        "power": false,
+        "power": true,
         "temperature": 25,
         "mode": "cool",
         "fanSpeed": "auto"
       },
       "roomId": 5
+    },
+    {
+      "id": "8161",
+      "type": "ac",
+      "name": "Điều hòa phòng ngủ",
+      "status": "active",
+      "macAddress": "sds",
+      "model": "ew",
+      "firmware": "",
+      "installDate": "2025-04-25",
+      "manufacturer": "",
+      "serialNumber": "dsd",
+      "isOnline": true,
+      "lastOnline": "2025-04-25T03:24:45.513Z",
+      "roomId": 3,
+      "state": {
+        "power": false,
+        "temperature": 24,
+        "mode": "cool",
+        "fanSpeed": "auto"
+      }
+    },
+    {
+      "id": "16a9",
+      "type": "music-system",
+      "name": "Điều hòa phòng ngủ",
+      "status": "active",
+      "macAddress": "sds",
+      "model": "ew",
+      "firmware": "",
+      "installDate": "2025-04-25",
+      "manufacturer": "",
+      "serialNumber": "dsd",
+      "isOnline": true,
+      "lastOnline": "2025-04-25T03:24:45.513Z",
+      "roomId": 3,
+      "state": {
+        "power": false,
+        "volume": 50,
+        "source": "bluetooth"
+      }
+    },
+    {
+      "id": "e3c5",
+      "type": "tv",
+      "name": "TV phòng khách",
+      "status": "active",
+      "macAddress": "sds",
+      "model": "ew",
+      "firmware": "",
+      "installDate": "2025-04-25",
+      "manufacturer": "",
+      "serialNumber": "dsd",
+      "isOnline": true,
+      "lastOnline": "2025-04-25T03:43:12.945Z",
+      "roomId": 2,
+      "state": {
+        "power": false,
+        "volume": 50,
+        "source": "hdmi1"
+      }
     }
   ],
   "rooms": [
@@ -209,7 +270,10 @@
       "floor": 1,
       "last_cleaned": "09/04/2025",
       "next_booking": null,
-      "devices": ["1", "2"],
+      "devices": [
+        "1",
+        "2"
+      ],
       "id": "604c"
     },
     {
@@ -223,7 +287,10 @@
       "floor": 1,
       "last_cleaned": "08/04/2025",
       "next_booking": null,
-      "devices": ["3", "4"],
+      "devices": [
+        "3",
+        "4"
+      ],
       "id": "93be"
     },
     {
@@ -237,7 +304,10 @@
       "floor": 2,
       "last_cleaned": "07/04/2025",
       "next_booking": "15/04/2025",
-      "devices": ["5", "6"],
+      "devices": [
+        "5",
+        "6"
+      ],
       "id": "59b1"
     },
     {
@@ -251,7 +321,10 @@
       "floor": 2,
       "last_cleaned": "09/04/2025",
       "next_booking": "16/04/2025",
-      "devices": ["7", "8"],
+      "devices": [
+        "7",
+        "8"
+      ],
       "id": "3d69"
     },
     {
@@ -265,7 +338,10 @@
       "floor": 3,
       "last_cleaned": "08/04/2025",
       "next_booking": null,
-      "devices": ["9", "10"],
+      "devices": [
+        "9",
+        "10"
+      ],
       "id": "b2be"
     }
   ],
@@ -488,19 +564,27 @@
     {
       "floor_id": 1,
       "floor_number": 1,
-      "rooms": ["1", "2"],
+      "rooms": [
+        "1",
+        "2"
+      ],
       "id": "2546"
     },
     {
       "floor_id": 2,
       "floor_number": 2,
-      "rooms": ["3", "4"],
+      "rooms": [
+        "3",
+        "4"
+      ],
       "id": "d528"
     },
     {
       "floor_id": 3,
       "floor_number": 3,
-      "rooms": ["5"],
+      "rooms": [
+        "5"
+      ],
       "id": "0e45"
     }
   ]
