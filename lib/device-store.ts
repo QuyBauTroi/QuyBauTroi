@@ -145,7 +145,7 @@ export const useDeviceStore = create<DeviceStore>()(
       partialize: (state) => ({
         deviceStates: state.deviceStates,
         errorReports: state.errorReports,
-      }), // Chỉ lưu trữ deviceStates và errorReports
+      }), // Chỉ lưu trữ deviceStates và errorReports sadfgsdg
     },
   ),
 )

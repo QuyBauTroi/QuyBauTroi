@@ -8,7 +8,7 @@ import { roomService } from "@/services/roomService";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Settings, Trash2, Power, Volume2, Sun, Snowflake } from "lucide-react";
+import { ArrowLeft, Settings, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Slider } from "@/components/ui/slider";

@@ -1,20 +1,10 @@
 "use client"
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { BedDouble, UserCircle, Settings, Calendar, LogOut, Wrench, Touchpad, Hotel, LayoutDashboard, Users, Bell, Menu, X } from "lucide-react";
+import { BedDouble, UserCircle, Settings, Calendar, LogOut, Wrench, Touchpad, LayoutDashboard, Users, Bell, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import Link from "next/link";
-
-
-
-// Mock getPageTitle function (replace with actual logic)
-const getPageTitle = () => {
-  const pathname = usePathname();
-  const navItems = getNavItems(Number(1)); // Example role
-  const activeItem = navItems.find((item) => item.path === pathname);
-  return activeItem?.label || "Hotel Admin";
-};
 
 // Define navigation items for each role
 const getNavItems = (role: number) => {

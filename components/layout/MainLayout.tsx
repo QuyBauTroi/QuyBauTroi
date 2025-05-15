@@ -1,6 +1,5 @@
 "use client";
 import Navbar from "./Navbar";
-import Header from "./Header";
 import Auth from "@/components/Auth/Login";
 import { useAuth } from "@/contexts/AuthContext";
 

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LogIn } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface AuthProps {
   onLogin: (user: { email: string; role: number, name:string }) => void; // Prop để thông báo đăng nhập thành công
@@ -18,6 +19,7 @@ export default function Auth({ onLogin }: AuthProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,8 +28,26 @@ export default function Auth({ onLogin }: AuthProps) {
       (u) => u.email === email && u.password === password
     );
     if (user) {
-      onLogin({email : user.email, role: user.role , name: user.name}); // Gọi callback khi đăng nhập thành công
-      toast.success("Đăng nhập thành công")
+        onLogin({ email: user.email, role: user.role, name: user.name });
+        setTimeout(() => {
+          let redirectPath = "";
+          switch (user.role) {
+            case 1:
+              redirectPath = "/manager/dashboard";
+              break;
+            case 2:
+              redirectPath = "/receptionist/dashboard";
+              break;
+            case 3:
+              redirectPath = "/technician/dashboard";
+              break;
+            default:
+              redirectPath = "/";
+          }
+        
+          router.push(redirectPath);
+          toast.success("Đăng nhập thành công");
+        }, 100); // chờ React cập nhật context
     } else {
       setError("Email hoặc mật khẩu không đúng");
     }
